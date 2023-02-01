@@ -9,9 +9,9 @@ const fetch = (...args) =>
 // @route GET api/question/test
 // @description Tests questions route
 // @access Public
-router.get('/test', (req, res) => {
+router.get('/', (req, res) => {
    try {
-      fetch('https://opentdb.com/api.php?amount=10&type=multiple&encode=url3986')
+      fetch(`https://opentdb.com/api.php?amount=10&category=${req.query.category}&type=multiple&encode=url3986`)
       .then(response => response.json())
       .then(data => {
          res.json(data)
